@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <div class="Field"></div>
+    </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        //init first input field
+        var targetDiv = $(".Field");
+        $('<div>Primary Email:<input type="text" name="email" length="40" /><button id="addField">+</button><button class="rem" style="display: none;">-</button></div>').appendTo(targetDiv);
+
+        //remove input field
+        $(document).on('click','.rem', function () {
+            $(this).closest('div').remove();
+        });
+
+        //add new input field
+        $(document).on('click','#addField', function () {
+            var targetDiv = $(".Field");
+            document.getElementById("addField").remove();
+            for(var i = 0 ; i< document.getElementsByClassName("rem").length; i++){
+                document.getElementsByClassName("rem")[i].style.display = "inline";
+            }
+            $('<div>Primary Email:<input type="text" name="email" length="40" /><button id="addField">+</button><button class="rem" style="display: none;">-</button></div>').appendTo(targetDiv);
+        });
+
+    });
+</script>
+
+</html>
